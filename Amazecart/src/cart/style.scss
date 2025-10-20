@@ -1,0 +1,24 @@
+.cart-items{
+.cart-image{
+height:180px;
+object-fit:contain;
+}
+.cart-qty{
+    border:2px solid #ffd814;
+    padding:5px;
+    display:inline-flex;
+    align-items: center;
+    width:90px;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.btn-border{
+    padding:4px 10px;
+    border-left: 1px solid #8080806b;
+    font-size: 12px;
+    font-weight: 500;
+}
+}
+.rounded-border{
+border-radius: 50px;
+}
