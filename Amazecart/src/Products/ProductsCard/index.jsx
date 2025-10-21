@@ -46,7 +46,6 @@ const ProductsCard = (product) => {
   }
   const onIncrement = () => {
     if (isLoading) return;
-    console.log("add to cart");
     makeRequestInc(product);
   }
 

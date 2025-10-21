@@ -38,7 +38,7 @@ const EditProduct = () => {
   }
   return (
     <Col sm={{ span: 8, offset: 1 }} md={{ span: 7, offset: 2 }} lg={{ span: 7, offset: 2 }} xl={{ span: 4, offset: 4 }}>
-      <Card className='product m-4'>
+      <Card className=' product m-4'>
         <CardImg src={image} className="image"></CardImg>
         <CardBody>
           <FormGroup>

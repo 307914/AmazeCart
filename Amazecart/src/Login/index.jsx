@@ -31,15 +31,12 @@ const Login = () => {
             console.log("authurl is", authUrl);
             navigate(authUrl, { replace: true })
         }
+        else if (!authUrl && loginResponse?.success) {
+            navigate('/');
+        }
     }, [loginResponse])
 
 
-    useEffect(() => {
-        if (userdata) {
-            navigate('/');
-        }
-
-    }, [userdata]);
 
     const isFormValid = username.isValid && password.value?.length;
 
@@ -60,9 +57,9 @@ const Login = () => {
     }
 
 
-    const onLogin = () => {
+    const onLogin = async () => {
         const payload = { username: username.value, password: password.value };
-        makeLoginreq(payload);
+        await makeLoginreq(payload);
     }
     return (
         <Container fluid>
