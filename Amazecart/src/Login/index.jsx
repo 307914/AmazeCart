@@ -57,9 +57,9 @@ const Login = () => {
     }
 
 
-    const onLogin = async () => {
+    const onLogin = () => {
         const payload = { username: username.value, password: password.value };
-        await makeLoginreq(payload);
+        makeLoginreq(payload);
     }
     return (
         <Container fluid>
