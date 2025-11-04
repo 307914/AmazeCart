@@ -15,7 +15,6 @@ const Signup = () => {
     const [isPassword, setIsPassword] = useState(false);
 
     const [pass, setPass] = useState(false);
-    const { userdata, message } = useContext(UserContext);
     const navigate = useNavigate();
 
     const { makeRequest } = UseApi(END_POINTS.USER.SIGNUP, REQUEST_TYPE.POST);

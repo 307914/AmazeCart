@@ -17,21 +17,20 @@ import UserContextProvider from './usercontextprovider.jsx';
 let router = createBrowserRouter([
   {
     path: '/',
-    element:<App />,
-    children:routes
+    element: <App />,
+    children: routes
   },
 ]);
-// const store=createStore(rootreducer,applyMiddleware(logger,thunk));
-const store=createStore(countreducer,applyMiddleware(logger,thunk));
+const store = createStore(countreducer, applyMiddleware(logger, thunk));
 
 createRoot(document.getElementById('root')).render(
   <ApiContextProvider>
-  <UserContextProvider>
-    <Provider store={store}>
-      <RouterProvider router={router}>
-      <App/>
-      </RouterProvider>
-     </Provider> 
-     </UserContextProvider>
-     </ApiContextProvider>
+    <UserContextProvider>
+      <Provider store={store}>
+        <RouterProvider router={router}>
+          <App />
+        </RouterProvider>
+      </Provider>
+    </UserContextProvider>
+  </ApiContextProvider>
 )

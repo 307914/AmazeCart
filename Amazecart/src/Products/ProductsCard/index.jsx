@@ -73,7 +73,7 @@ const ProductsCard = (product) => {
               <section className='price'>${price}</section>
               <section className='price description'>{description}</section>
             </section>
-            <section className='d-flex align-items:center'>
+            <section className='d-flex align-items-center'>
               <Rating readonly initialValue={rating.rate} allowFraction size={20} />
               <Badge pill className='ms-2' style={{ display: "flex", alignItems: "center" }}>{rating.count}</Badge>
             </section>

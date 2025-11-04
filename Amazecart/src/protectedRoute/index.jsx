@@ -16,7 +16,6 @@ const ProtectedRoute = () => {
                 setNavigateToLogin(false);
             }
             else {
-                console.log("in the useeffect");
                 setNavigateToLogin(true);
             }
         }

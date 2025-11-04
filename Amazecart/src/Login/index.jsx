@@ -9,7 +9,7 @@ import UseIsLoggedIn from '../useIsLoggedIn';
 import { UserContext } from '../usercontextprovider';
 
 const Login = () => {
-    const { makeRequest: makeRequestReset, response: resetResponse } = UseApi(END_POINTS.USER.RESETPASSWORD, REQUEST_TYPE.PATCH);
+    const { makeRequest: makeRequestReset } = UseApi(END_POINTS.USER.RESETPASSWORD, REQUEST_TYPE.PATCH);
     const { makeRequest: makeLoginreq, response: loginResponse } = UseApi(END_POINTS.USER.LOGIN, REQUEST_TYPE.POST);
     const [state, dispatch] = useReducer(SignupReducer, intialState)
     const { username, password } = state;

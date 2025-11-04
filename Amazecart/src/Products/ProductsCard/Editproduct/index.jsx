@@ -37,21 +37,23 @@ const EditProduct = () => {
     dispatch({ type: 'UPDATE', value, name });
   }
   return (
-    <Col sm={{ span: 8, offset: 1 }} md={{ span: 7, offset: 2 }} lg={{ span: 7, offset: 2 }} xl={{ span: 4, offset: 4 }}>
+    <Col sm={{ span: 8, offset: 1 }} md={{ span: 7, offset: 2 }} lg={{ span: 7, offset: 2 }} xl={{ span: 5, offset: 4 }}>
       <Card className=' product m-4'>
-        <CardImg src={image} className="image"></CardImg>
+        <CardImg src={image} className="image mt-3"></CardImg>
         <CardBody>
-          <FormGroup>
-            <FormLabel className="fw-bold">Product Title</FormLabel>
-            {
-              editField === FIELD_NAMES.TITLE ?
-                <FormControl value={title} name={FIELD_NAMES.TITLE} onChange={HandleChange} /> :
-                <section className="d-flex align-items-between">
-                  <FormLabel>{title}</FormLabel>
-                  <EditIcon onClick={() => setEditField(FIELD_NAMES.TITLE)} />
-                </section>
-            }
-          </FormGroup>
+          <section className="mb-3">
+            <FormGroup>
+              <FormLabel className="fw-bold">Product Title</FormLabel>
+              {
+                editField === FIELD_NAMES.TITLE ?
+                  <FormControl value={title} name={FIELD_NAMES.TITLE} onChange={HandleChange} /> :
+                  <section className="d-flex align-content-between">
+                    <FormLabel style={{ width: "100%" }}>{title}</FormLabel>
+                    <EditIcon onClick={() => setEditField(FIELD_NAMES.TITLE)} />
+                  </section>
+              }
+            </FormGroup>
+          </section>
           <FormGroup>
             <FormLabel className="fw-bold">Product Price</FormLabel>
             {editField === FIELD_NAMES.PRICE ?
@@ -77,26 +79,29 @@ const EditProduct = () => {
                 {discount ?
                   <>
                     <span className="text-muted me-2" style={{ textDecoration: "line-through" }}>{price}</span>
-                    <span className="fw-bold text-danger me-2">-{discount}%</span>
+                    <span className="fw-bold text-danger me-2">{discount}% off</span>
                     <span className=" fw-bold text-success me-2"> ${(price * (1 - discount / 100)).toFixed(2)}</span>
                   </>
                   : <FormLabel>{price}</FormLabel>
                 }
-                <EditIcon onClick={() => setEditField(FIELD_NAMES.PRICE)} />
+                <section className="ms-auto"><EditIcon onClick={() => setEditField(FIELD_NAMES.PRICE)} />
+                </section>
               </section>
             }
           </FormGroup>
-          <FormGroup>
-            <FormLabel className="fw-bold">Product description</FormLabel>
-            {
-              editField === FIELD_NAMES.DESCRIPTION ?
-                <FormControl as="textarea" row={5} value={description} name={FIELD_NAMES.DESCRIPTION} onChange={HandleChange}></FormControl> :
-                <section>
-                  <FormLabel className="mx-2">{description}</FormLabel>
-                  <EditIcon onClick={() => setEditField(FIELD_NAMES.DESCRIPTION)} />
-                </ section>
-            }
-          </FormGroup>
+          <section className="mt-3">
+            <FormGroup>
+              <FormLabel className="fw-bold">Product description</FormLabel>
+              {
+                editField === FIELD_NAMES.DESCRIPTION ?
+                  <FormControl as="textarea" row={5} value={description} name={FIELD_NAMES.DESCRIPTION} onChange={HandleChange}></FormControl> :
+                  <section className="d-flex justify-content-between">
+                    <FormLabel className="mx-2" style={{ fontWeight: "400", fontSize: "16px", width: "90%" }}>{description}</FormLabel>
+                    <EditIcon onClick={() => setEditField(FIELD_NAMES.DESCRIPTION)} />
+                  </ section>
+              }
+            </FormGroup>
+          </section>
         </CardBody>
         <CardFooter className="d-flex justify-content-between ">
           <Button onClick={() => { setEditField(null); setDiscount(0); dispatch({ type: 'RESET', product }) }} variant='outline-danger'>Reset</Button>
