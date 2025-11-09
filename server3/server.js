@@ -13,9 +13,10 @@ const path = require('path');
 const productRouter = require('./router/products');
 const checkOutRoute = require('./router/sessionRouter');
 
-const PORT = 2000;
+const PORT = process.env.PORT || 2000;
 app.use(
   cors({
+    origin: 'https://amazecart-1.onrender.com',
     credentials: true,
   })
 );
