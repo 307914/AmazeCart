@@ -16,10 +16,7 @@ const checkOutRoute = require('./router/sessionRouter');
 const PORT = process.env.PORT || 2000;
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173', // local dev
-      'https://amazecart-1.onrender.com',
-    ],
+    origin: ['http://localhost:5173', 'https://amazecart-1.onrender.com'],
     credentials: true,
   })
 );
@@ -31,8 +28,12 @@ app.use('/', productRouter);
 app.use('/stripe', checkOutRoute);
 
 app.use('/', express.static(path.join(__dirname, 'dist')));
-app.get('/{*splat}', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
 });
 
 app.use(errorHandler);
