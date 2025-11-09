@@ -153,7 +153,6 @@ userSchema.statics.decrement = async (username, product) => {
 
   if (data.cart?.items.find(({ id }) => id === product.id)?.quantity === 0) {
     await usermodel.removeFromCart(username, product);
-    return await usermodel.findUser(username);
   }
   await usermodel.calTotal(username);
   return await usermodel.findUser(username);

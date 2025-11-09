@@ -41,7 +41,7 @@ const login = async (req, res, next) => {
     if (isverified) {
       const token = genToken(user);
       res.cookie('authToken', token, { httpOnly: true, maxAge: 3600_000 });
-      res.send(responseCreator(' logged in sucessfully', user));
+      res.send(responseCreator('logged in sucessfully', user));
     } else {
       errorcreator('the password is invalid', 401);
     }
