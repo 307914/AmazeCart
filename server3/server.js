@@ -16,7 +16,6 @@ const checkOutRoute = require('./router/sessionRouter');
 const PORT = process.env.PORT || 2000;
 app.use(
   cors({
-    origin: 'https://amazecart-1.onrender.com',
     credentials: true,
   })
 );
