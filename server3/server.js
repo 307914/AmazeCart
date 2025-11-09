@@ -12,7 +12,6 @@ const cartrouter = require('./router/cartrouter');
 const path = require('path');
 const productRouter = require('./router/products');
 const checkOutRoute = require('./router/sessionRouter');
-const sendEmail = require('./utils/mailutils');
 
 const PORT = 2000;
 app.use(
